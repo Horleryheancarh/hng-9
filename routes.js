@@ -1,13 +1,9 @@
 const Router = require("express").Router()
 
-Router.get('/info', (req, res) => {
-	res.json({
-		slackUsername: "Yheancarh",
-		backend: true,
-		age: 25,
-		bio: "A regular guy trying to change the world",
-	})
-})
+const { info, mathematics } = require('./controllers');
+
+Router.get('/info', info);
+Router.post('/mathematics', mathematics)
 
 // Error Route
 Router.all('*', (req, res) => {
